@@ -22,5 +22,9 @@ app.use("/api/leads", leadRoutes);
 const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
 
+// note routes
+const noteRoutes = require("./routes/noteRoutes");
+app.use("/api/notes", noteRoutes);
+
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

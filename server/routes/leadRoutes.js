@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../database");
+const authMiddleware = require("../middleware/authMiddleware");
+
+router.use(authMiddleware);
 
 // CREATE lead
 router.post("/", (req, res) => {
