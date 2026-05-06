@@ -128,7 +128,7 @@ function Leads() {
         >
           {editingId ? "Update Lead" : "Add Lead"}
         </button>
-        
+
       </div>
 
       <input
@@ -140,6 +140,7 @@ function Leads() {
       {/* TABLE */}
       <div className="bg-white shadow">
         <table className="w-full">
+
           <thead>
             <tr className="border-b bg-gray-100">
               <th className="p-2">Name</th>
@@ -194,7 +195,10 @@ function Leads() {
                       setEditingId(lead.id);
                     }}
                     className="bg-green-500 text-white px-2 py-1"
-                  >Edit</button>
+                  >
+                  Edit
+                  </button>
+
                   <button
                     onClick={() => deleteLead(lead.id)}
                     className="bg-red-500 text-white px-2 py-1"
@@ -205,8 +209,9 @@ function Leads() {
               </tr>
             ))}
           </tbody>
-
+          
         </table>
+
       </div>
 
     </MainLayout>
