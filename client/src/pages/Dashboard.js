@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import MainLayout from "../layouts/MainLayout";
 
-
 function Dashboard() {
   const [data, setData] = useState(null);
 
