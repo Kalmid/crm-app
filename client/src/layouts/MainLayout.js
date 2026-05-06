@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function MainLayout({ children }) {
+function MainLayout({ children }) {
   return (
     <div className="flex h-screen">
       
@@ -12,6 +12,7 @@ export default function MainLayout({ children }) {
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/leads">Leads</Link>
         </nav>
+        
         <button
           onClick={() => {
             localStorage.removeItem("token");
@@ -33,3 +34,6 @@ export default function MainLayout({ children }) {
     </div>
   );
 }
+
+
+export default MainLayout;

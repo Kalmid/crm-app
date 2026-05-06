@@ -69,8 +69,7 @@ function LeadDetails() {
           className="border w-full p-2"
           value={note}
           onChange={(e) => setNote(e.target.value)}
-          placeholder="Write a note..."
-        />
+          placeholder="Write a note..." />
 
         <button
           onClick={addNote}

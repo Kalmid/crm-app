@@ -36,12 +36,16 @@ function Leads() {
 
   // CREAT, UPDATE lead
   const createLead = async () => {
+    
     if(editingId) {
+
       //Update lead
       await axios.put(`http://localhost:5000/api/leads/${editingId}`, form, {
         headers: { Authorization: `Bearer ${token}`}
       });
+
     } else {
+
       // create lead
       await axios.post("http://localhost:5000/api/leads", form, {
         headers: { Authorization: `Bearer ${token}` }
