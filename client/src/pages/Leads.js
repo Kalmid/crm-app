@@ -36,7 +36,7 @@ function Leads() {
 
   // CREAT, UPDATE lead
   const createLead = async () => {
-    
+
     if(editingId) {
 
       //Update lead
@@ -128,6 +128,7 @@ function Leads() {
         >
           {editingId ? "Update Lead" : "Add Lead"}
         </button>
+        
       </div>
 
       <input
