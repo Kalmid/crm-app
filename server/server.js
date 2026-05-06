@@ -26,5 +26,9 @@ app.use("/api/auth", authRoutes);
 const noteRoutes = require("./routes/noteRoutes");
 app.use("/api/notes", noteRoutes);
 
+// dashboard routes
+const dashboardRoutes = require("./routes/dashboardRoutes");
+app.use("/api/dashboard", dashboardRoutes);
+
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
