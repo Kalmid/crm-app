@@ -12,11 +12,22 @@ export default function MainLayout({ children }) {
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/leads">Leads</Link>
         </nav>
+        <button
+          onClick={() => {
+            localStorage.removeItem("token");
+            window.location.href = "/";
+          }}
+          className="mt-6 bg-red-500 p-2 w-full"
+        >
+          Logout
+        </button>
+        
       </div>
 
       {/* Main Content */}
       <div className="flex-1 bg-gray-100 p-6">
         {children}
+        
       </div>
 
     </div>

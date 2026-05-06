@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import MainLayout from "../layouts/MainLayout";
 
-export default function Dashboard() {
+
+function Dashboard() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -9,7 +11,9 @@ export default function Dashboard() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get("http://localhost:5000/api/dashboard", {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       });
 
       setData(res.data);
@@ -18,20 +22,53 @@ export default function Dashboard() {
     fetchData();
   }, []);
 
-  if (!data) return <p>Loading...</p>;
+  if (!data) {
+    return (
+      <MainLayout>
+        <p>Loading dashboard...</p>
+      </MainLayout>
+    );
+  }
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl mb-4">Dashboard</h1>
+    <MainLayout>
+      <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
 
       <div className="grid grid-cols-3 gap-4">
-        <div className="p-4 shadow">Total: {data.totalLeads}</div>
-        <div className="p-4 shadow">New: {data.newLeads}</div>
-        <div className="p-4 shadow">Won: {data.wonLeads}</div>
-        <div className="p-4 shadow">Lost: {data.lostLeads}</div>
-        <div className="p-4 shadow">Total Value: {data.totalValue}</div>
-        <div className="p-4 shadow">Won Value: {data.wonValue}</div>
+        
+        <div className="bg-white p-4 shadow rounded">
+          <h3 className="text-gray-500">Total Leads</h3>
+          <p className="text-2xl font-bold">{data.totalLeads}</p>
+        </div>
+
+        <div className="bg-white p-4 shadow rounded">
+          <h3 className="text-gray-500">New Leads</h3>
+          <p className="text-2xl font-bold">{data.newLeads}</p>
+        </div>
+
+        <div className="bg-white p-4 shadow rounded">
+          <h3 className="text-gray-500">Qualified</h3>
+          <p className="text-2xl font-bold">{data.qualifiedLeads}</p>
+        </div>
+
+        <div className="bg-white p-4 shadow rounded">
+          <h3 className="text-gray-500">Won Leads</h3>
+          <p className="text-2xl font-bold">{data.wonLeads}</p>
+        </div>
+
+        <div className="bg-white p-4 shadow rounded">
+          <h3 className="text-gray-500">Lost Leads</h3>
+          <p className="text-2xl font-bold">{data.lostLeads}</p>
+        </div>
+
+        <div className="bg-white p-4 shadow rounded">
+          <h3 className="text-gray-500">Total Value</h3>
+          <p className="text-2xl font-bold">Rs {data.totalValue}</p>
+        </div>
+
       </div>
-    </div>
+    </MainLayout>
   );
 }
+
+export default Dashboard;
